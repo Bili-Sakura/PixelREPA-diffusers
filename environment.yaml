@@ -11,10 +11,6 @@ dependencies:
   - torchvision=0.20.1
   - numpy=1.22
   - pip:
-    - opencv-python==4.11.0.86
-    - timm==0.9.12
-    - tensorboard==2.10.0
-    - scipy==1.9.1
-    - einops==0.8.1
-    - gdown==5.2.0
-    - -e git+https://github.com/LTH14/torch-fidelity.git@master#egg=torch-fidelity
+    - diffusers==0.38.0
+    - pillow==12.2.0
+    - safetensors==0.4.5
