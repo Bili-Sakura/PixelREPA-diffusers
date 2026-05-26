@@ -235,8 +235,6 @@ def get_2d_sincos_pos_embed(embed_dim, grid_size, cls_token=False, extra_tokens=
 
 
 def get_2d_sincos_pos_embed_from_grid(embed_dim, grid):
-    if embed_dim % 2 != 0:
-        raise ValueError(f"embed_dim must be divisible by 2, but got {embed_dim}")
     emb_h = get_1d_sincos_pos_embed_from_grid(embed_dim // 2, grid[0])
     emb_w = get_1d_sincos_pos_embed_from_grid(embed_dim // 2, grid[1])
     return np.concatenate([emb_h, emb_w], axis=1)

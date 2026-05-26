@@ -173,9 +173,7 @@ class PixelREPAPipeline(DiffusionPipeline):
             return v
 
         v_cond, v_uncond = v.chunk(2, dim=0)
-        interval_mask = t < guidance_interval_max
-        if guidance_interval_min != 0.0:
-            interval_mask = interval_mask & (t > guidance_interval_min)
+        interval_mask = (t < guidance_interval_max) & (t > guidance_interval_min)
         scale = torch.where(
             interval_mask,
             torch.tensor(guidance_scale, device=z_value.device, dtype=z_value.dtype),
@@ -261,8 +259,6 @@ class PixelREPAPipeline(DiffusionPipeline):
         solver = sampling_method or self.scheduler.config.solver
         if solver not in {"heun", "euler"}:
             raise ValueError("sampling_method must be one of: 'heun', 'euler'.")
-        if num_inference_steps < 2:
-            raise ValueError("num_inference_steps must be >= 2.")
         if output_type not in {"pil", "np", "pt"}:
             raise ValueError("output_type must be one of: 'pil', 'np', 'pt'.")
 

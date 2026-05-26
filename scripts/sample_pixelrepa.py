@@ -37,8 +37,13 @@ def main():
     if args.seed is not None:
         generator = torch.Generator(device=pipeline.device).manual_seed(args.seed)
 
+    try:
+        class_label = int(args.class_label)
+    except ValueError:
+        class_label = args.class_label
+
     result = pipeline(
-        class_labels=int(args.class_label) if args.class_label.isdigit() else args.class_label,
+        class_labels=class_label,
         guidance_scale=args.guidance_scale,
         guidance_interval_min=args.guidance_interval_min,
         guidance_interval_max=args.guidance_interval_max,

@@ -1,6 +1,6 @@
 # PixelREPA Diffusers Refactor
 
-This repository is now fully organized around a Diffusers-style package layout, following the same migration pattern used in `Bili-Sakura/JiT-diffusers`.
+This repository is now fully organized around a Diffusers-style package layout, following the same migration pattern used in [Bili-Sakura/JiT-diffusers](https://github.com/Bili-Sakura/JiT-diffusers).
 
 Legacy standalone training/evaluation codepaths have been removed so the tree is focused on reusable Diffusers components and checkpoint conversion.
 
