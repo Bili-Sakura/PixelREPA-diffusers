@@ -3,5 +3,4 @@ experiments
 cache
 __pycache__
 ssd
-src
 .nfs*
