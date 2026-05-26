@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import torch
+from typing import Optional
 
 try:
     from src.diffusers.models.transformers.pixelrepa_weights import PIXELREPA_PRESET_CONFIGS
@@ -57,7 +58,7 @@ def _config_first(config, *keys, default=None, required: bool = False):
     return default
 
 
-def _infer_model_type_from_config(model_config) -> str | None:
+def _infer_model_type_from_config(model_config) -> Optional[str]:
     sample_size = _config_first(model_config, "sample_size", "image_size")
     patch_size = _config_first(model_config, "patch_size")
     hidden_size = _config_first(model_config, "hidden_size")

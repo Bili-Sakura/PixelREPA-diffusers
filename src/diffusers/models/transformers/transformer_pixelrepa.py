@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import math
 from collections.abc import Mapping
-from typing import Dict, Literal, Tuple
+from typing import Dict, Literal, Optional, Tuple
 
 import numpy as np
 import torch
@@ -274,8 +274,8 @@ class PixelREPATransformer2DModel(ModelMixin, ConfigMixin):
         in_context_len: int = 32,
         in_context_start: int = 4,
         norm_eps: float = 1e-6,
-        model_type: str | None = None,
-        num_class_embeds: int | None = None,
+        model_type: Optional[str] = None,
+        num_class_embeds: Optional[int] = None,
     ):
         super().__init__()
         if num_class_embeds is not None:

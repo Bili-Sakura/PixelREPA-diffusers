@@ -24,7 +24,6 @@ class PixelREPAScheduler(SchedulerMixin, ConfigMixin):
         t_eps: float = 5e-2,
         solver: str = "heun",
     ):
-        del num_train_timesteps
         if solver not in {"heun", "euler"}:
             raise ValueError("solver must be one of: 'heun', 'euler'.")
         self.timesteps: Optional[torch.Tensor] = None
@@ -61,7 +60,6 @@ class PixelREPAScheduler(SchedulerMixin, ConfigMixin):
             self.register_to_config(solver=solver)
 
     def scale_model_input(self, sample: torch.Tensor, timestep: Union[float, torch.Tensor]) -> torch.Tensor:
-        del timestep
         return sample
 
     def _resolve_step_index(self, timestep: Union[float, torch.Tensor, None]) -> int:

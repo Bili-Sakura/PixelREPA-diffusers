@@ -23,7 +23,7 @@ class PixelREPAPipeline(DiffusionPipeline):
     def __init__(
         self,
         transformer: PixelREPATransformer2DModel,
-        scheduler: PixelREPAScheduler | None = None,
+        scheduler: Optional[PixelREPAScheduler] = None,
         id2label: Optional[Dict[Union[int, str], str]] = None,
     ):
         super().__init__()
